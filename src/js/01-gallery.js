@@ -9,17 +9,16 @@ const galleryListRef = document.querySelector('.gallery');
 
 const makeGalleryItemRef = ({ preview, original, description } = {}) =>
   `
-    <li>
-      <a class="gallery__item" href="${original}">
-        <img
-          class="gallery__image"
-          src="${preview}"
-            data-source="${original}"
+  <div class="gallery__item">
+    <a class="gallery__link" href="${original}">
+      <img
+        class="gallery__image"
+        src="${preview}"
+        data-source="${original}"
         alt="${description}"
-        />
-      </a>
-    </li>
-  `;
+      />
+    </a>
+  </div>`;
 
 const makeGallery = galleryItems.map(makeGalleryItemRef).join('');
 galleryListRef.insertAdjacentHTML('beforeend', makeGallery);
@@ -28,8 +27,3 @@ new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-
-(function createMarkup() {
-  const itemMarkup = galleryItems.map(templateFunction).join('');
-  galleryRefs.insertAdjacentHTML('beforeend', itemMarkup);
-})();
