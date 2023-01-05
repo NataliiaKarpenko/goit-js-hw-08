@@ -38,7 +38,7 @@ function handleFeedbackFormInput(e) {
 function handleFeedbackFormSubmit(e) {
   e.preventDefault();
 
-  if (!userData.email || !userData.email) {
+  if (!userData.email || !userData.message) {
     alert('Fill in all the fields');
     return;
   }
