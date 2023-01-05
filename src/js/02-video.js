@@ -9,4 +9,11 @@ player.on(
   throttle(({ seconds }) => localStorage.setItem(currentTime, seconds), 1000)
 );
 
-player.setCurrentTime(localStorage.getItem(currentTime));
+const getCurrentTime = () => {
+  if (localStorage.getItem(currentTime) === null) {
+    return;
+  }
+  player.setCurrentTime(localStorage.getItem(currentTime));
+};
+
+getCurrentTime();
